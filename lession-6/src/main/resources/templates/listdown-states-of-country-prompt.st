@@ -1,0 +1,2 @@
+List down the states of the country {country}.
+Respond in JSON with state name in a property named 'state', capital city in a property called 'capitalCity', population in a property called 'population' and languages in a property called 'languages'.

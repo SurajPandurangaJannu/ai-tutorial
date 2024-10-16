@@ -8,4 +8,9 @@
   </parent>
   <artifactId>lession-0</artifactId>
 
+  <dependencies>
+
+
+  </dependencies>
+
 </project>
