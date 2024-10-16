@@ -2,6 +2,7 @@ package com.jannusuraj.ai.controller;
 
 import com.jannusuraj.ai.model.Country;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.ai.converter.BeanOutputConverter;
@@ -23,19 +24,18 @@ public class StateController {
     private static final String FORMAT_PROMPT_PARAM = "format";
 
     @Autowired
-    private ChatClient chatClient;
+    private ChatModel chatModel;
 
-    @Value("${classpath:templates/listdown-states-of-country-prompt.st")
-    private Resource listdownstatesPrompt;
+    @Value("classpath:templates/listdown-states-of-country-prompt.st")
+    private Resource listDownStatesPrompt;
 
     @GetMapping("/listdownstates")
     public ResponseEntity<Object> listDownStateOfCountry(@RequestParam("country") String country) {
         final BeanOutputConverter<Country> converter = new BeanOutputConverter<>(Country.class);
         final String format = converter.getFormat();
-        final PromptTemplate stateTemplate = new PromptTemplate(listdownstatesPrompt);
-        stateTemplate.create(Map.of(COUNTRY_PROMPT_PARAM, country, FORMAT_PROMPT_PARAM, format));
-        final Prompt prompt = stateTemplate.create();
-        final String response = chatClient.prompt(prompt).call().content();
+        final PromptTemplate stateTemplate = new PromptTemplate(listDownStatesPrompt);
+        final Prompt prompt = stateTemplate.create(Map.of(COUNTRY_PROMPT_PARAM, country, FORMAT_PROMPT_PARAM, format));
+        final String response = chatModel.call(prompt).getResult().getOutput().getContent();
         try {
             return new ResponseEntity<>(converter.convert(response), HttpStatus.OK);
         } catch (Exception e) {

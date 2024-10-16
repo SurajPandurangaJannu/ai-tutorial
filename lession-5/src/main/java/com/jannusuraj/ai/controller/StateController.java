@@ -1,6 +1,6 @@
 package com.jannusuraj.ai.controller;
 
-import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,18 +18,18 @@ import java.util.Map;
 public class StateController {
 
     private static final String COUNTRY_PROMPT_PARAM = "country";
-    @Autowired
-    private ChatClient chatClient;
 
-    @Value("${classpath:templates/listdown-states-of-country-prompt.st")
-    private Resource listdownstatesPrompt;
+    @Autowired
+    private ChatModel chatModel;
+
+    @Value("classpath:templates/listdown-states-of-country-prompt.st")
+    private Resource listDownStatesPrompt;
 
     @GetMapping("/listdownstates")
     public ResponseEntity<String> listDownStateOfCountry(@RequestParam("country") String country) {
-        final PromptTemplate stateTemplate = new PromptTemplate(listdownstatesPrompt);
-        stateTemplate.create(Map.of(COUNTRY_PROMPT_PARAM,country));
-        final Prompt prompt = stateTemplate.create();
-        final String response = chatClient.prompt(prompt).call().content();
+        final PromptTemplate stateTemplate = new PromptTemplate(listDownStatesPrompt);
+        final Prompt prompt = stateTemplate.create(Map.of(COUNTRY_PROMPT_PARAM,country));
+        final String response = chatModel.call(prompt).getResult().getOutput().getContent();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
