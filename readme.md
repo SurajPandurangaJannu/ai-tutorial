@@ -12,9 +12,10 @@
 * [Lession-8 : Spring AI : Prompts for invalid input ](lession-8/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
 * [Lession-9 : Spring AI : System Prompts ](lession-9/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
 * [Lession-10 : Spring AI : RAG Basics ](lession-10/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
-* [Lession-11 : Spring AI Basic API ](lession-11/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
-* [Lession-12 : Spring AI Basic API ](lession-12/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
-* [Lession-13 : Spring AI Basic API ](lession-13/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
+* [Lession-11 : Spring AI : Image Generation](lession-11/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
+* [Lession-12 : OpenAI Image generation ](lession-12/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
+* [Lession-13 : Spring AI : Vision ](lession-13/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
+* [Lession-14 : Spring AI : Text to Speech ](lession-14/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
 
 
 # References
