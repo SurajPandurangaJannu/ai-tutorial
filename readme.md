@@ -16,6 +16,7 @@
 * [Lession-12 : OpenAI Image generation ](lession-12/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
 * [Lession-13 : Spring AI : Vision ](lession-13/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
 * [Lession-14 : Spring AI : Text to Speech ](lession-14/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
+* [Lession-15 : Spring AI : Pg Vector Database PostgreSQL ](lession-15/src/main/java/com/jannusuraj/ai/OpenAIAPIApplication.java)
 
 
 # References
